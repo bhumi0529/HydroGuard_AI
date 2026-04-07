@@ -1,0 +1,7 @@
+district,rainfall,temperature,crop,water_usage,groundwater_level
+Ludhiana,200,30,paddy,high,45
+Amritsar,180,29,wheat,medium,55
+Patiala,150,32,maize,low,65
+Jalandhar,220,28,paddy,high,40
+Bathinda,130,33,maize,low,70
+Mohali,170,27,wheat,medium,60
