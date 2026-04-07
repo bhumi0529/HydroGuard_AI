@@ -1,69 +1,119 @@
-body {
+/* Reset margins and ensure full height */
+html, body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #dff6ff, #bde0fe);
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-wrapper {
+  /* Fix: Root path for public folder assets */
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/bg.jpeg'); */
+  /* background-size: cover;
+  background-position: center;
+  background-attachment: fixed;  */
+  
+  min-height: 100vh;
+  width: 100%;
+  
+  /* Centering Logic */
+  display: flex;
+  flex-direction: column; /* Stack header and container vertically */
+  align-items: center;    /* Center horizontally */
+  justify-content: center; /* Center vertically */
 }
 
 .container {
-  text-align: center;
-  padding: 30px;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px; /* Increased to fit chart and card better */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures children like H1 and Card stay centered */
+  text-align: center;  /* Centers the text inside H1 and Subtitle */
 }
 
 h1 {
-  color: #023e8a;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  font-size: 3rem;
+  margin: 0 0 10px 0;
 }
 
 .subtitle {
-  color: #555;
-  margin-bottom: 20px;
+  color: #e0f2fe;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  font-size: 1.2rem;
 }
 
 .card {
-  background: white;
-  padding: 20px;
-  margin: auto;
-  width: 300px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  width: 350px; /* Fixed width for the input box */
+  border-radius: 20px;
+  box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+  margin-bottom: 30px; /* Space before results appear */
 }
 
-.card input,
-.card select {
-  width: 90%;
-  margin: 8px;
-  padding: 10px;
-  border-radius: 8px;
+/* Result and Chart Grid */
+.dashboard-results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* On wider screens, put results and charts side-by-side */
+@media (min-width: 850px) {
+  .dashboard-results {
+    grid-template-columns: 350px 1fr; 
+  }
+}
+
+.result-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+  margin-bottom: 15px;
+  text-align: left;
+  border-left: 6px solid #0077b6;
+}
+
+.chart-container {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Input Styles */
+.card input, .card select {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 10px;
   border: 1px solid #ccc;
+  outline: none;
 }
 
 button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
+  width: 100%;
+  padding: 14px;
   background: #0077b6;
   color: white;
-  border-radius: 8px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
   background: #023e8a;
-}
-
-.result-card {
-  margin-top: 30px;
-}
-
-.result-box {
-  background: white;
-  margin: 10px auto;
-  padding: 15px;
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
+  transform: translateY(-2px);
 }
